@@ -1,0 +1,58 @@
+:root {
+    --primary-green: #004d40;
+    --accent-gold: #d4af37;
+    --bg-white: #ffffff;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-white);
+    margin: 0;
+    padding: 0;
+    color: var(--primary-green);
+}
+
+.container {
+    max-width: 500px; /* ليناسب حجم شاشة الجوال/الآيباد */
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+h1 { font-weight: 800; font-size: 24px; margin: 5px 0; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.grid-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.grid-item:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+
+.icon { font-size: 30px; display: block; margin-bottom: 10px; }
+
+h3 { font-size: 14px; margin: 0; }
+
+footer {
+    margin-top: 50px;
+    font-size: 12px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.copyright { font-weight: bold; color: var(--accent-gold); }
