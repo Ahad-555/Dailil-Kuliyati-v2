@@ -11,68 +11,64 @@
 <body>
     <div id="loader">
         <div class="glass-card">
-            <img src="logo.jpg" class="logo-main">
+            <img src="logo.png" class="logo-main" alt="Logo">
             <h1 class="brand-title">دليل كليتي</h1>
-            <p class="brand-subtitle">بوابتك الشاملة لخدمات الكلية</p>
-            <div class="dots">
-                <span></span><span></span><span></span>
-            </div>
+            <div class="dots"><span></span><span></span><span></span></div>
         </div>
     </div>
 
     <div id="main-content" class="hidden">
         <div class="glass-card">
-            <img src="logo.jpg" class="logo-small">
+            <img src="logo.png" class="logo-small" alt="Logo">
             <h2 class="page-title">القائمة الرئيسية</h2>
             <div class="line-decorator"></div>
             
             <nav class="menu-grid">
                 <a href="#" class="menu-item">
-                    <i class="fa-regular fa-calendar-check"></i>
                     <span>جدول دليل كليتي</span>
+                    <i class="fa-regular fa-calendar-check"></i>
                 </a>
                 <a href="#" class="menu-item">
-                    <i class="fa-solid fa-bolt-lightning"></i>
                     <span>الدليل السريع</span>
+                    <i class="fa-solid fa-bolt-lightning"></i>
                 </a>
                 <a href="#" class="menu-item">
-                    <i class="fa-solid fa-chart-simple"></i>
                     <span>حاسبة المعدل التفاعلية</span>
+                    <i class="fa-solid fa-calculator"></i>
                 </a>
                 <a href="#" class="menu-item">
-                    <i class="fa-regular fa-bell"></i>
                     <span>النشرات والإعلانات</span>
+                    <i class="fa-regular fa-bell"></i>
                 </a>
                 <a href="#" class="menu-item">
-                    <i class="fa-regular fa-comment-dots"></i>
                     <span>اقترحي وقيمي</span>
+                    <i class="fa-regular fa-comment-dots"></i>
                 </a>
             </nav>
+
+            <div class="internal-nav">
+                <div class="nav-icon active"><i class="fa-solid fa-house"></i><span>الرئيسية</span></div>
+                <div class="nav-icon"><i class="fa-regular fa-calendar"></i><span>الجدول</span></div>
+                <div class="nav-icon"><i class="fa-solid fa-calculator"></i><span>الحاسبة</span></div>
+                <div class="nav-icon"><i class="fa-solid fa-book"></i><span>الدليل</span></div>
+                <div class="nav-icon"><i class="fa-regular fa-newspaper"></i><span>الإعلانات</span></div>
+            </div>
         </div>
 
-        <div class="bottom-nav">
-            <div class="nav-icon active"><i class="fa-solid fa-house"></i><span>الرئيسية</span></div>
-            <div class="nav-icon"><i class="fa-regular fa-calendar"></i><span>الجدول</span></div>
-            <div class="nav-icon"><i class="fa-solid fa-calculator"></i><span>الحاسبة</span></div>
-            <div class="nav-icon"><i class="fa-solid fa-book"></i><span>الدليل</span></div>
-            <div class="nav-icon"><i class="fa-regular fa-newspaper"></i><span>الإعلانات</span></div>
-        </div>
-
-        <footer>
+        <footer class="centered-footer">
             <p>تم تطوير هذا الموقع لخدمة طالبات جامعة الحدود الشمالية في رفحاء</p>
             <p class="footer-copy">دليل كليتي التفاعلي — © عهد الشمري 2026 | <i class="fa-solid fa-headset"></i> الدعم</p>
         </footer>
     </div>
 
     <script>
-        // إخفاء التحميل بعد 4 ثواني (تقليل من 7 لراحة المستخدم)
         setTimeout(() => {
             document.getElementById('loader').classList.add('fade-out');
             setTimeout(() => {
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('main-content').classList.remove('hidden');
             }, 500);
-        }, 4000);
+        }, 3000);
     </script>
 </body>
 </html>
