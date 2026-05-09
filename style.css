@@ -1,13 +1,14 @@
 :root {
     --primary-green: #1a4d42;
-    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-bg: rgba(255, 255, 255, 0.95);
 }
 
 body {
     font-family: 'Cairo', sans-serif;
     margin: 0;
-    background: #f0f4f7;
+    background: #f8f9fa;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -16,53 +17,66 @@ body {
 
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    padding: 30px 20px;
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 0 20px 30px 20px; /* الصفر العلوي عشان الخط الغامق يلزق فوق */
     width: 90%;
     max-width: 380px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    text-align: center;
-    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden; /* عشان الخط الغامق يتبع انحناء الزوايا */
 }
 
-.logo-small, .logo-main { width: 100px; margin-bottom: 15px; }
+/* الخط الغامق أعلى المربع الزجاجي */
+.top-border {
+    height: 6px;
+    background-color: var(--primary-green);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logo-small { width: 90px; margin-top: 25px; margin-bottom: 10px; }
+
+.page-title {
+    color: var(--primary-green);
+    margin-bottom: 25px; /* مسافة بين العنوان والأزرار */
+    font-weight: 700;
+}
 
 .menu-item {
     background-color: var(--primary-green);
     color: white;
     display: flex;
-    justify-content: center; /* توسيط المحتوى */
     align-items: center;
-    padding: 15px;
+    padding: 15px 20px;
     border-radius: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     text-decoration: none;
-    gap: 15px; /* مسافة بين النص والأيقونة */
+    position: relative;
 }
 
-/* الشريط السفلي داخل الكارد وتحت الأزرار */
-.internal-nav {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
+/* الأيقونات في أقصى اليمين */
+.menu-item i {
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
 }
 
-.nav-icon { color: #888; font-size: 10px; text-align: center; }
-.nav-icon i { display: block; font-size: 18px; margin-bottom: 4px; }
-.nav-icon.active { color: var(--primary-green); }
+/* عناوين الأزرار في المنتصف تماماً */
+.btn-text {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
 
 .centered-footer {
     text-align: center;
-    width: 100%;
+    margin-top: 20px;
     font-size: 11px;
-    color: #666;
-    margin-top: 10px;
+    color: #888;
 }
-
-.footer-copy { font-weight: bold; margin-top: 5px; }
 
 .hidden { display: none; }
 .fade-out { opacity: 0; transition: 0.5s; }
