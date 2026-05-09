@@ -1,1 +1,0 @@
-# Dailil-Kuliyati-v2
