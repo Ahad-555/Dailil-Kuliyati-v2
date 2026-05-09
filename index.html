@@ -3,41 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل كليتي - جامعة الحدود الشمالية</title>
+    <title>دليل كليتي</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="شعار جامعة الحدود الشمالية" class="logo">
-            <h1>دليل كليتي</h1>
-            <p>بوابتك الشاملة لخدمات الكلية</p>
-        </header>
+    <div id="loader">
+        <div class="glass-card">
+            <img src="logo.jpg" class="logo-main">
+            <h1 class="brand-title">دليل كليتي</h1>
+            <p class="brand-subtitle">بوابتك الشاملة لخدمات الكلية</p>
+            <div class="dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
 
-        <main class="grid-container">
-            <div class="grid-item">
-                <span class="icon">📅</span>
-                <h3>جدول دليل كليتي</h3>
-            </div>
-            <div class="grid-item">
-                <span class="icon">⚡</span>
-                <h3>الدليل السريع</h3>
-            </div>
-            <div class="grid-item">
-                <span class="icon">➕</span>
-                <h3>حاسبة المعدل</h3>
-            </div>
-            <div class="grid-item">
-                <span class="icon">📢</span>
-                <h3>النشرات والإعلانات</h3>
-            </div>
-        </main>
+    <div id="main-content" class="hidden">
+        <div class="glass-card">
+            <img src="logo.jpg" class="logo-small">
+            <h2 class="page-title">القائمة الرئيسية</h2>
+            <div class="line-decorator"></div>
+            
+            <nav class="menu-grid">
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>جدول دليل كليتي</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <span>الدليل السريع</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>حاسبة المعدل التفاعلية</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>النشرات والإعلانات</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>اقترحي وقيمي</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-icon active"><i class="fa-solid fa-house"></i><span>الرئيسية</span></div>
+            <div class="nav-icon"><i class="fa-regular fa-calendar"></i><span>الجدول</span></div>
+            <div class="nav-icon"><i class="fa-solid fa-calculator"></i><span>الحاسبة</span></div>
+            <div class="nav-icon"><i class="fa-solid fa-book"></i><span>الدليل</span></div>
+            <div class="nav-icon"><i class="fa-regular fa-newspaper"></i><span>الإعلانات</span></div>
+        </div>
 
         <footer>
             <p>تم تطوير هذا الموقع لخدمة طالبات جامعة الحدود الشمالية في رفحاء</p>
-            <p class="copyright">دليل كليتي التفاعلي | عهد الشمري 2026</p>
-        </header>
+            <p class="footer-copy">دليل كليتي التفاعلي — © عهد الشمري 2026 | <i class="fa-solid fa-headset"></i> الدعم</p>
+        </footer>
     </div>
+
+    <script>
+        // إخفاء التحميل بعد 4 ثواني (تقليل من 7 لراحة المستخدم)
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+            }, 500);
+        }, 4000);
+    </script>
 </body>
 </html>
