@@ -1,14 +1,13 @@
 :root {
     --primary-green: #1a4d42;
-    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.98);
 }
 
 body {
     font-family: 'Cairo', sans-serif;
     margin: 0;
-    background: #f8f9fa;
+    background-color: #f0f2f5;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -17,19 +16,22 @@ body {
 
 .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     border-radius: 25px;
     padding: 0 20px 30px 20px;
     width: 90%;
     max-width: 380px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     position: relative;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .top-border {
-    height: 6px;
+    height: 8px;
     background-color: var(--primary-green);
     width: 100%;
     position: absolute;
@@ -37,58 +39,77 @@ body {
     right: 0;
 }
 
-/* توحيد مكان اللوجو في كل الصفحات */
-.logo-small { 
-    width: 85px; 
-    margin-top: 30px; 
-    margin-bottom: 15px; 
+/* حل مشكلة اللوجو: حاوية ثابتة تضمن التوسيط والمكان الصحيح */
+.logo-wrapper {
+    margin-top: 35px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.brand-title { color: var(--primary-green); font-size: 24px; margin: 10px 0; }
-.brand-subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+.logo-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
 
-/* دوائر التحميل الصغيرة */
-.dots-container { margin: 20px 0; }
-.mini-dots span {
-    width: 8px; /* حجم أصغر */
-    height: 8px;
-    margin: 0 4px;
-    background: #ddd;
+.brand-title { color: var(--primary-green); font-size: 22px; margin: 15px 0 5px 0; }
+.brand-subtitle { color: #777; font-size: 13px; margin-bottom: 20px; }
+
+/* نقاط التحميل - تم إصلاحها لتظهر وتتحرك */
+.dots-container {
+    height: 20px;
+    margin: 15px 0;
+}
+
+.loading-dots span {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ddd;
     border-radius: 50%;
     display: inline-block;
-    animation: dot-glow 1.5s infinite ease-in-out;
+    animation: bounce 1.4s infinite ease-in-out both;
 }
-.mini-dots span:nth-child(2) { animation-delay: 0.2s; }
-.mini-dots span:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes dot-glow {
-    0%, 100% { background: #ddd; transform: scale(1); }
-    50% { background: var(--primary-green); transform: scale(1.2); }
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); background-color: #ddd; }
+    40% { transform: scale(1.0); background-color: var(--primary-green); }
 }
+
+.page-title { color: var(--primary-green); margin-bottom: 25px; font-weight: 700; }
+
+.menu-grid { width: 100%; }
 
 .menu-item {
     background-color: var(--primary-green);
     color: white;
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+    padding: 16px 20px;
     border-radius: 12px;
     margin-bottom: 12px;
     text-decoration: none;
     position: relative;
+    transition: 0.2s;
 }
 
 .menu-item i { position: absolute; right: 20px; font-size: 18px; }
 .btn-text { width: 100%; text-align: center; font-weight: 600; }
 
-.loader-footer, .centered-footer {
-    margin-top: 25px;
+.centered-footer, .loader-footer {
+    margin-top: 20px;
     font-size: 10px;
     color: #888;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-.footer-copy { font-weight: bold; color: var(--primary-green); }
+.footer-copy { font-weight: bold; color: var(--primary-green); display: block; margin-top: 4px; }
 
 .hidden { display: none; }
-.fade-out { opacity: 0; transition: 0.5s; }
+#loader { transition: opacity 0.5s ease; width: 100%; display: flex; justify-content: center; position: fixed; z-index: 1000; }
