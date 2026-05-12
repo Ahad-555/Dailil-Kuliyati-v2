@@ -1,34 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل كليتي التفاعلي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <div class="top-info-bar">
-        <span class="admin-trigger" onclick="checkAdmin()">MIS | عهد الشمري</span>
-        <span>دليل كليتي التفاعلي</span>
+
+    <div class="app-wrapper">
+        <header class="main-header">
+            <img src="logo.png" alt="لوقو الجامعة" class="university-logo"> <h1 class="app-title">دليل كليتي التفاعلي</h1>
+            <p class="app-subtitle">بوابتك الشاملة لخدمات الكلية</p>
+        </header>
+
+        <main class="main-content">
+            <div class="hero-card">
+                <div class="hero-text">
+                    <h2>جدول دليل كليتي</h2>
+                    <span class="major-tag">MIS | دليل كليتي التفاعلي</span>
+                </div>
+                <div class="hero-icon">📅</div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="ابحثي عن دكتورة أو المادة ...." class="search-input">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="days-scroll">
+                <button class="day-tab">الأحد</button>
+                <button class="day-tab">الاثنين</button>
+                <button class="day-tab active">الثلاثاء</button>
+                <button class="day-tab">الأربعاء</button>
+                <button class="day-tab">الخميس</button>
+            </div>
+
+            <div class="lectures-container">
+                <div class="lecture-card">
+                    <div class="card-header">
+                        <span class="day-label">الثلاثاء (25)</span>
+                        <h3 class="subject-name">كيمياء عامة</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="open-btn">فتح في تبويب مستقل</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="credits-footer">
+            <p>تم تطوير هذا الموقع لخدمة طالبات جامعة الحدود الشمالية في رفحاء</p>
+            <p class="dev-name">عهد الشمري 2026</p>
+        </footer>
+
+        <nav class="bottom-nav">
+            <div class="nav-item"><span>🏠</span><p>الرئيسية</p></div>
+            <div class="nav-item active"><span>📅</span><p>الجدول</p></div>
+            <div class="nav-item"><span>🔢</span><p>الحاسبة</p></div>
+            <div class="nav-item"><span>📖</span><p>الدليل</p></div>
+            <div class="nav-item"><span>📢</span><p>الإعلانات</p></div>
+        </nav>
     </div>
 
-    <div class="glass-card">
-        <div class="logo-wrapper"><img src="logo.png"></div>
-        <h2 style="color:var(--primary-green)">القائمة الرئيسية</h2>
-        <nav class="menu-grid">
-            <a href="schedule.html" class="menu-item"><span>جدول دليل كليتي</span><i class="fa-regular fa-calendar-check"></i></a>
-            </nav>
-    </div>
-
-    <h3 style="margin-right:20px; font-size:16px;">الآن في القاعة (شرايح)</h3>
-    <div class="lecture-card">
-        <span class="dept-tag">تطبيقية</span>
-        <h4 style="margin:8px 0">مقدمة حوسبة</h4>
-        <p style="font-size:12px; color:#888">د. آلاء العقيلي | قاعة 206</p>
-    </div>
-
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i>الرئيسية</a>
-        <a href="schedule.html" class="nav-item"><i class="fa-solid fa-calendar-days"></i>الجدول</a>
-        <a href="#" class="nav-item"><i class="fa-solid fa-calculator"></i>الحاسبة</a>
-        <a href="#" class="nav-item"><i class="fa-solid fa-bell"></i>الإعلانات</a>
-    </nav>
-
-    <script>
-        function checkAdmin() {
-            if (prompt("كلمة سر المشرفة:") === "ahd2026") window.location.href = "admin.html";
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
+</html>
