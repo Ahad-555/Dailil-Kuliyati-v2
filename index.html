@@ -1,231 +1,34 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جدول دليل كليتي - النسخة الكاملة</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* التنسيقات المطابقة للنسخة الأصلية */
-        body { background-color: #f8f9fa; }
-        
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            font-size: 13px;
-            color: #666;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* تبديل استكشاف/جدولي */
-        .tab-nav {
-            display: flex;
-            background: #eee;
-            border-radius: 12px;
-            margin: 0 15px 15px;
-            padding: 4px;
-        }
-
-        .tab-nav button {
-            flex: 1;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-family: 'Cairo';
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .tab-nav button.active { background: white; color: #1a4d42; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-
-        /* أشرطة التصنيف الدائرية */
-        .scroll-wrapper {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 5px 15px;
-            scrollbar-width: none;
-        }
-        .scroll-wrapper::-webkit-scrollbar { display: none; }
-
-        .pill {
-            background: white;
-            border: 1px solid #ddd;
-            padding: 6px 18px;
-            border-radius: 20px;
-            white-space: nowrap;
-            font-size: 13px;
-        }
-
-        .pill.active { background: #1a4d42; color: white; border-color: #1a4d42; }
-
-        /* صندوق البحث */
-        .search-box {
-            margin: 15px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 15px 12px 40px;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            font-family: 'Cairo';
-        }
-
-        .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; }
-
-        /* كرت المحاضرة المطابق تماماً */
-        .course-card {
-            background: white;
-            border-radius: 20px;
-            margin: 0 15px 15px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            border: 1px solid #efefef;
-        }
-
-        .tag-row { display: flex; justify-content: flex-start; margin-bottom: 8px; }
-        .tag-specialty { background: #f0f7f6; color: #1a4d42; padding: 2px 12px; border-radius: 6px; font-size: 11px; }
-
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-        .course-name { font-size: 17px; font-weight: 700; color: #333; margin: 0; }
-        .instructor { color: #888; font-size: 14px; margin: 4px 0 12px; display: block; }
-
-        .card-details { display: flex; gap: 20px; color: #666; font-size: 13px; margin-bottom: 15px; }
-        .detail-item i { color: #1a4d42; margin-left: 5px; }
-
-        /* الأزرار الثلاثية أسفل الكرت */
-        .card-footer-btns {
-            display: flex;
-            border-top: 1px solid #eee;
-            padding-top: 12px;
-            gap: 8px;
-        }
-
-        .btn-action {
-            flex: 1;
-            border: 1px solid #eee;
-            background: white;
-            padding: 8px;
-            border-radius: 8px;
-            font-family: 'Cairo';
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .btn-action.add { background: #1a4d42; color: white; border: none; }
-
-        /* المنيو السفلي الثابت (Bottom Nav) */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            border-top: 1px solid #eee;
-            z-index: 100;
-        }
-
-        .nav-link { text-decoration: none; color: #999; text-align: center; font-size: 10px; }
-        .nav-link.active { color: #1a4d42; }
-        .nav-link i { display: block; font-size: 18px; margin-bottom: 3px; }
-
-        /* زر المساعدة العائم */
-        .help-btn {
-            position: fixed;
-            bottom: 70px;
-            right: 15px;
-            background: #4caf50;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            z-index: 99;
-        }
-    </style>
-</head>
 <body>
-
-    <div class="header-top">
-        <span>MIS | [span_1](start_span)عهد الشمري</span>[span_1](end_span)
-        [span_2](start_span)<span style="font-weight: bold; color: #1a4d42;">دليل كليتي التفاعلي</span>[span_2](end_span)
+    <div class="top-info-bar">
+        <span class="admin-trigger" onclick="checkAdmin()">MIS | عهد الشمري</span>
+        <span>دليل كليتي التفاعلي</span>
     </div>
 
-    <div class="tab-nav">
-        [span_3](start_span)<button class="active">استكشاف</button>[span_3](end_span)
-        [span_4](start_span)<button>جدولي (0)</button>[span_4](end_span)
+    <div class="glass-card">
+        <div class="logo-wrapper"><img src="logo.png"></div>
+        <h2 style="color:var(--primary-green)">القائمة الرئيسية</h2>
+        <nav class="menu-grid">
+            <a href="schedule.html" class="menu-item"><span>جدول دليل كليتي</span><i class="fa-regular fa-calendar-check"></i></a>
+            </nav>
     </div>
 
-    <div class="scroll-wrapper">
-        [span_5](start_span)<div class="pill active">الكل</div>[span_5](end_span)
-        [span_6](start_span)<div class="pill">تطبيقيه</div>[span_6](end_span)
-        [span_7](start_span)<div class="pill">حاسبات</div>[span_7](end_span)
-        [span_8](start_span)<div class="pill">عربي</div>[span_8](end_span)
-        [span_9](start_span)<div class="pill">صيدلة</div>[span_9](end_span)
+    <h3 style="margin-right:20px; font-size:16px;">الآن في القاعة (شرايح)</h3>
+    <div class="lecture-card">
+        <span class="dept-tag">تطبيقية</span>
+        <h4 style="margin:8px 0">مقدمة حوسبة</h4>
+        <p style="font-size:12px; color:#888">د. آلاء العقيلي | قاعة 206</p>
     </div>
 
-    <div class="scroll-wrapper" style="margin-top: 5px;">
-        [span_10](start_span)<div class="pill active">الأحد</div>[span_10](end_span)
-        [span_11](start_span)<div class="pill">الاثنين</div>[span_11](end_span)
-        [span_12](start_span)<div class="pill">الثلاثاء</div>[span_12](end_span)
-        [span_13](start_span)<div class="pill">الأربعاء</div>[span_13](end_span)
-        [span_14](start_span)<div class="pill">الخميس</div>[span_14](end_span)
-    </div>
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i>الرئيسية</a>
+        <a href="schedule.html" class="nav-item"><i class="fa-solid fa-calendar-days"></i>الجدول</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-calculator"></i>الحاسبة</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-bell"></i>الإعلانات</a>
+    </nav>
 
-    <div class="search-box">
-        [span_15](start_span)<input type="text" placeholder="ابحثي عن دكتورة أو المادة ....">[span_15](end_span)
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-
-    [span_16](start_span)<h4 style="margin: 0 15px 10px; color: #333;">• الأحد <span style="color:#999; font-weight:normal; font-size:12px;">(46)</span></h4>[span_16](end_span)
-
-    <div class="course-card">
-        <div class="tag-row">
-            [span_17](start_span)<span class="tag-specialty">MIS</span>[span_17](end_span)
-        </div>
-        <div class="card-header">
-            <div>
-                [span_18](start_span)<h3 class="course-name">مقدمة في البرمجة</h3>[span_18](end_span)
-                <span class="instructor">د. [span_19](start_span)آمنة الشمري</span>[span_19](end_span)
-            </div>
-        </div>
-        <div class="card-details">
-            [span_20](start_span)<div class="detail-item"><i class="fa-regular fa-clock"></i> 08:00 - 09:40</div>[span_20](end_span)
-            [span_21](start_span)<div class="detail-item"><i class="fa-solid fa-location-dot"></i> GH1 111</div>[span_21](end_span)
-        </div>
-        <div class="card-footer-btns">
-            [span_22](start_span)<button class="btn-action"><i class="fa-solid fa-location-arrow"></i> القاعة</button>[span_22](end_span)
-            [span_23](start_span)<button class="btn-action"><i class="fa-solid fa-book-open"></i> المكتب</button>[span_23](end_span)
-            [span_24](start_span)<button class="btn-action add"><i class="fa-solid fa-plus"></i> إضافة</button>[span_24](end_span)
-        </div>
-    </div>
-
-    <div class="help-btn">
-        [span_25](start_span)<i class="fa-solid fa-robot"></i> مساعدة دليل كليتي[span_25](end_span)
-    </div>
-
-    <div class="bottom-nav">
-        [span_26](start_span)<a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i>الرئيسية</a>[span_26](end_span)
-        [span_27](start_span)<a href="schedule.html" class="nav-link active"><i class="fa-solid fa-calendar-days"></i>الجدول</a>[span_27](end_span)
-        [span_28](start_span)<a href="#" class="nav-link"><i class="fa-solid fa-calculator"></i>الحاسبة</a>[span_28](end_span)
-        [span_29](start_span)<a href="#" class="nav-link"><i class="fa-solid fa-book"></i>الدليل</a>[span_29](end_span)
-        [span_30](start_span)<a href="#" class="nav-link"><i class="fa-solid fa-bell"></i>الإعلانات</a>[span_30](end_span)
-    </div>
-
-    <div style="height: 80px;"></div> </body>
-</html>
+    <script>
+        function checkAdmin() {
+            if (prompt("كلمة سر المشرفة:") === "ahd2026") window.location.href = "admin.html";
+        }
+    </script>
+</body>
